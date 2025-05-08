@@ -33,6 +33,7 @@ const HomePage = async () => {
   // const res = await wixClient.products.queryProducts().find();
 
   // console.log(res);
+  const featuredCategoryId = process.env.FEATURED_PRODUCTS_CATEGORY_ID || "00000000-000000-000000-000000000001";
 
   return (
     <div className="">

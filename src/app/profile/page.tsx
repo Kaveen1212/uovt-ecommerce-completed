@@ -5,6 +5,9 @@ import { members } from "@wix/members";
 import Link from "next/link";
 import { format } from "timeago.js";
 
+// Prevent static generation for this page
+export const dynamic = 'force-dynamic';
+
 const ProfilePage = async () => {
   const wixClient = await wixClientServer();
 

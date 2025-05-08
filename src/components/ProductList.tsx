@@ -19,7 +19,7 @@ const ProductList = async ({
   // Check if categoryId is defined and valid
   if (!categoryId) {
     console.error("Error: categoryId is undefined or invalid.");
-    return null;
+    return <div className="mt-12">No products available at this time.</div>;
   }
 
   const wixClient = await wixClientServer();

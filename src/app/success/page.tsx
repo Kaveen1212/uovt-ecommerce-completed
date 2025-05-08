@@ -1,9 +1,13 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import Confetti from "react-confetti";
 
-const SuccessPage = () => {
+// Prevent static generation for this page
+export const dynamic = 'force-dynamic';
+
+// Component that uses useSearchParams
+const SuccessContent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -30,6 +34,19 @@ const SuccessPage = () => {
       </h2>
       <h3 className="">You are being redirected to the order page...</h3>
     </div>
+  );
+};
+
+// Main component with Suspense boundary
+const SuccessPage = () => {
+  return (
+    <Suspense fallback={
+      <div className="flex flex-col gap-6 items-center justify-center h-[calc(100vh-180px)]">
+        <h1 className="text-2xl">Loading...</h1>
+      </div>
+    }>
+      <SuccessContent />
+    </Suspense>
   );
 };
 

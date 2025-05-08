@@ -99,11 +99,10 @@ const CartModal = () => {
           </div>
           {/* BOTTOM */}
           <div className="">
-            <div className="flex items-center justify-between font-semibold">
+          <div className="flex items-center justify-between font-semibold">
               <span className="">Subtotal</span>
-              {/* Check if cart.subtotal exists */}
               <span className="">
-                ${cart.subtotal?.amount ?? "0.00"}
+                ${(cart as any).subtotal?.amount ?? (cart as any).pricing?.subtotal?.amount ?? "0.00"}
               </span>
             </div>
             <p className="text-gray-500 text-sm mt-2 mb-4">
